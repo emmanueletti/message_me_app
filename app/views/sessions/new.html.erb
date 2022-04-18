@@ -3,23 +3,24 @@
 <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
     <div class="column">
-      <div class="ui form">
+      <%# generate rails form %>
+      <%= form_with scope: :session, url: login_path do |field| %>
         <div class="field">
-          <label>Username</label>
+          <%= field.label :username %>
           <div class="ui left icon input">
-            <input type="text" placeholder="Username">
+            <%= field.text_field :username, placeholder: "Username" %>
             <i class="user icon"></i>
           </div>
         </div>
         <div class="field">
-          <label>Password</label>
+          <%= field.label :password %>
           <div class="ui left icon input">
-            <input type="password">
-            <i class="lock icon"></i>
+            <%= field.password_field :password, placeholder: "Password" %>
+            <i class="user icon"></i>
           </div>
         </div>
-        <div class="ui blue submit button">Login</div>
-      </div>
+        <%= field.submit "Login", class:"ui blue submit button" %>
+      <% end %>
     </div>
     <div class="middle aligned column">
       <div class="ui big button">
