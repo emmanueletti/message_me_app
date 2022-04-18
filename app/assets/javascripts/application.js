@@ -22,4 +22,9 @@
 // but also for "turbolinks" to be fully loaded
 $(document).on('turbolinks:load', () => {
   $('.ui.dropdown').dropdown();
+
+  // Close dismissable message blocks
+  $('.message .close').on('click', function () {
+    $(this).closest('.message').transition('fade');
+  });
 });
